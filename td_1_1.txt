@@ -201,14 +201,14 @@ Debut
 	lire(a)
 	ecrire("b ")
 	lire(b)
-	ecrire("yc 
+	ecrire("c 
 	lire(c)
 	d <- pow(b,2)-4*a*b
 	si(d>0)
-		ecrire("x = ",(-b-sqrt(d))/2a," ou ",(-b+sqrt(d))/2a)
+		ecrire("x = ",(-b-sqrt(d))/2a," ou x=",(-b+sqrt(d))/2a)
 	sinon
 		si(d=0)
-			afficher("x = ",-b/2a)
+			ecrire("x = ",-b/2a)
 		sinon
 			ecrire("x n'existe pas")
 		finsi
@@ -220,43 +220,43 @@ Exo9
 exo_9_1
 Variables
 	hd,md,ha,ma,h1,h2,d:entier
-	afficher("entrer l'heure de depart ")
-	afficher("H")
+	ecrire("entrer l'heure de depart ")
+	ecrire("H")
 	lire(hd)
-	afficher("M")
+	ecrire("M")
 	lire(md)
-	afficher("entrer l'heure d'arriver ")
-	afficher("H")
+	ecrire("entrer l'heure d'arriver ")
+	ecrire("H")
 	lire(ha)
-	afficher("M")
+	ecrire("M")
 	lire(ma)
-	h1 = hd*60+md
-	h2 = ha*60+ma
-	d = h2 - h1
-	afficher("La durée de vol est ",floor(d/60),"H",d%60,"Mn")
+	h1 <- hd*60+md
+	h2 <- ha*60+ma
+	d <- h2 - h1
+	ecrire("La durée de vol est ",d div 60,"H",d mod 60,"Mn")
 	
 fin
 
 exo_9_2
 Variables
 	hd,md,ha,ma,h1,h2,d:entier
-	afficher("entrer l'heure de depart ")
-	afficher("H")
+	ecrire("entrer l'heure de depart ")
+	ecrire("H")
 	lire(hd)
-	afficher("M")
+	ecrire("M")
 	lire(md)
-	afficher("entrer l'heure d'arriver ")
-	afficher("H")
+	ecrire("entrer l'heure d'arriver ")
+	ecrire("H")
 	lire(ha)
-	afficher("M")
+	ecrire("M")
 	lire(ma)
 	si(hd>ha) alors
 		ha = ha+24
 	finsi
-	h1 = hd*60+md
-	h2 = ha*60+ma
-	d = h2 - h1
-	afficher("La durée de vol est ",floor(d/60),"H",d%60,"Mn")
+	h1 <- hd*60+md
+	h2 <- ha*60+ma
+	d <- h2 - h1
+	ecrire("La durée de vol est ",d div 60,"H",d mod 60,"Mn")
 	
 fin
 
@@ -272,24 +272,24 @@ variables
 	z:entier
 debut
 	si(x>y) alors
-		z=x
-		x=y
-		y=z
+		z <- x
+		x <- y
+		y <-z
 	finsi
 fin
 
 Debut
 
-	afficher("entrer la valeur de a")
+	ecrire("entrer la valeur de a")
 	lire(a)
-	afficher("entrer la valeur de b")
+	ecrire("entrer la valeur de b")
 	lire(b)
-	afficher("entrer la valeur de c")
+	ecrire("entrer la valeur de c")
 	lire(c)
 	compare(a,b)
 	compare(a,c)
 	compare(b,c)
-	afficher("l'ordre croissant est ",a," , ",b," , ",c)
+	ecrire("l'ordre croissant est ",a," , ",b," , ",c)
 fin
 	
 	
@@ -299,24 +299,24 @@ variables
 	a,b:entier
 	o:chaine
 debut
-	afficher("entrer a")
+	ecrire("entrer a")
 	lire(a)
-	afficher("operation")
+	ecrire("operation")
 	lire(o)
-	afficher("entrer b")
+	ecrire("entrer b")
 	lire(b)
 	
 	selon o faire
 		cas "+" :
-			afficher(a," + ",b," = ",a+b)
+			ecrire(a," + ",b," = ",a+b)
 		cas "-" :
-			afficher(a," - ",b," = ",a-b)
+			ecrire(a," - ",b," = ",a-b)
 		cas "+" :
-			afficher(a," X ",b," = ",a*b)
+			ecrire(a," X ",b," = ",a*b)
 		cas "+" :
-			afficher(a," / ",b," = ",a/b)
+			ecrire(a," / ",b," = ",a div b)
 		sinon
-			afficher("votre choix n'existe pas")
+			ecrire("votre choix n'existe pas")
 	finselon
 	
 fin
@@ -330,18 +330,18 @@ exo12
 variables
 	n,i,s:entier
 debut
-	afficher("entrer n")
+	ecrire("entrer n")
 	lire(n)
 	s=0
 	pour (i=1 a n/2)
-		si(n%i==0)
-			s = s+i
+		si(n mod i=0)
+			s <- s+i
 		fins
 	finpour
-	si(n==s)
-		afficher("le nombre est parfait")
+	si(n=s)
+		ecrire("le nombre est parfait")
 	sinon
-		afficher("le nombre n'est pas parfait")
+		ecrire("le nombre n'est pas parfait")
 		
 	finsi
 fin
@@ -354,41 +354,41 @@ exo13
 variables
 	j,m,a:entier
 debut
-	afficher("entrer ldate ")
-	afficher("j")
+	ecrire("entrer ldate ")
+	ecrire("j")
 	lire(j)
-	afficher("m")
+	ecrire("m")
 	lire(m)
-	afficher("a")
+	ecrire("a")
 	lire(a)
 	si(m>12 OU m<0 OU j<0 OU j>31)
-		afficher("date invalide")
+		ecrire("date invalide")
 	sinon
 		si(m%2!=0 && m <=7 || m % 2 == 0 && m > 7)
 			si(j>31)
-				afficher("date invalide")
+				ecrire("date invalide")
 			sinon
-				afficher("date valide")
+				ecrire("date valide")
 			finsi
 		sinon
 			si(m!=2)
 				si(j>30)
-					afficher("date invalide")
+					ecrire("date invalide")
 				sinon
-					afficher("date valide")
+					ecrire("date valide")
 				finsi
 			sinon
-				si( a%400==0 OU a%4==0 ET a%100!=0)
+				si( a mod 400=0 OU a mod 4=0 ET a mod 100!=0)
 					si(j>28)
-						afficher("date invalide")
+						ecrire("date invalide")
 					sinon
-						afficher("date valide")
+						ecrire("date valide")
 					finsi
 				sinon
 					si(j>28)
-						afficher("date invalide")
+						ecrire("date invalide")
 					sinon
-						afficher("date valide")
+						ecrire("date valide")
 					finsi
 				finsi
 			finsi
