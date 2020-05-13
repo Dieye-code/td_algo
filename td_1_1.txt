@@ -1,0 +1,397 @@
+Exo1
+
+exo1
+
+variables
+	a,b,q,r:entier
+	ratio:reel
+debut
+	ecrire(“entrer la valeur de a ”)
+	lire(a)
+	ecrire(“entrer la valeur de b ”)
+	lire(b)
+	si(b=0) alors
+		afficher(“impossible de diviser avec 0 “)
+	sinon
+		q <- a div b
+		r <- a mod b
+		ratio <- 100*a/b
+		ecrire(“le quotient est “,q)
+		ecrire(“le reste  “,r)
+		ecrire(“le ratio est  “,ratio)
+	finsi
+fin
+
+
+Exo2
+
+exo2
+variables
+	r,p,s:entier
+début
+	ecrire(“entrer le rayon du cercle “”)
+	lire(r)
+	p <- 8*r*atan(1)
+	s <-4*pow(r,2)*atan(1)
+	ecrire(“le périmètre du cercle est “,p)
+	ecrire(“la surface du cercle est “,s)
+fin
+
+
+
+Exo3
+
+exo3_1
+variables
+	r1,r2,r3,rp:entier
+debut
+	ecrire(" entrer la resistance R1")
+	lire(r1)
+	ecrire(" entrer la resistance R2")
+	lire(r2)
+	ecrire(" entrer la resistance R3")
+	lire(r3)
+	ecrire("la resistance en serie est ",r1+r2+r3)
+	si((r=0 ET r2=0) OU (r1=0 ET r3=0) OU (r2=0 ET r3=0)) alors
+		ecrire("Impossible de calculer la resistance en parallele ")
+	sinon
+		rp <- (r1*r2*r3)/(r1*r2+r1*r3+r2*r3)
+		ecrire("la resistance en parallelle est ",rp)
+	finsi
+fin
+
+exo3_2
+variables
+	r1,r2,r3,rp,choix:entier
+	q:chaine
+debut
+	ecrire(" entrer la resistance R1")
+	lire(r1)
+	ecrire(" entrer la resistance R2")
+	lire(r2)
+	ecrire(" entrer la resistance R3")
+	lire(r3)
+	repeter
+		ecrire("Quelle resistance voulez-vou?")
+		ecrire("1------Resistance en Serie")
+		ecrire("2------Resistance en Parallele")
+		lire(choix)
+		selon choix faire
+			cas : 1
+				ecrire("la resistance en serie est ",r1+r2+r3)
+			cas : 2
+
+				si((r=0 ET r2=0) OU (r1=0 ET r3=0) OU (r2=0 ET r3=0)) alors
+					ecrire("Impossible de calculer la resistance en parallele ")
+				sinon
+					rp <- (r1*r2*r3)/(r1*r2+r1*r3+r2*r3)
+					ecrire("la resistance en parallelle est ",rp)
+				finsi
+			sinon 
+				ecrire("votre choix n'existe pas ")
+		finSelon
+		ecrire("voulez-vous continué O/n")
+		lire(q)
+	jusqua(q="n")
+fin
+
+Exo 4
+
+exo_4_1
+	Variables
+	n:entier
+	x:reel
+Debut
+	ecrire("entrer la valeur de x")
+	lire(x)
+	ecrire("entrer la valeur de n")
+	lire(n)
+	ecrire(x,' a la puissance ",n," est ",pow(x,n)
+fin
+
+
+exo_4_2
+	Variables
+	i,n:entier
+	x,p:reel
+Debut
+	ecrire("entrer la valeur de x")
+	lire(x)
+	ecrire("entrer la valeur de n")
+	lire(n)
+	p <- 1
+	si(n=0)
+		p <- 1
+	sinon
+		pour(i <- 1 a abs(n)) alors
+			p <- p*x
+		finpour
+		si(n<0)
+			p <- 1/p
+		finsi
+	finsi
+	ecrire(x,' a la puissance ",n," est ",p)
+fin
+
+
+Exo5
+
+exo_5
+
+	Variables 
+	a,s,i:entier
+Debut
+	s<-0
+	pour(i <- 1 a 5) alors
+		ecrire("entrer la valeur ",i)
+		lire(a)
+		s <- s+i
+	finpour
+	ecrire("l somme est ",s)
+fin
+
+Exo6
+
+exo_6
+Variables
+	x1,x2,y1,y2,d:entier
+Debut
+	ecrire("entrer les cordonnées du point A ")
+	ecrire("x")
+	lire(x1)
+	ecrire("y")
+	lire(y1)
+	ecrire("entrer les cordonnées du point b ")
+	ecrire("x")
+	lire(x2)
+	ecrire("y")
+	lire(y2)
+	d=sqrt(pow((x1-x2),2)+pow(y1-y2),2))
+	ecrire("la distance entre A (",x1,","y1,") et B(",x1,",",y2,") est ",d)
+fin
+
+Exo7
+
+exo_7
+Variables
+	val1,val2,val3,val4,val5,val,m:entier
+Debut
+	ecrire("entrer le montant a decomposer ")
+	lire(m)
+	val <- m
+	val1 <- val div 20
+	val <- val mod 20
+	val2 <-  val div 10
+	val <-  val mod 10
+	val3 <-  val div 5
+	val <- val mod 5
+	val4 <-  val div 2
+	va5 <- val mod 2
+	
+	ecrire("le montant ",m," est composé de ",val1," billets de 20 ", ",val2," billets de 10 ",val3," billets de 5 ",val4," pieces de 2 et ",val5," pieces de 1 euro")
+fin
+
+Exo8
+
+exo_8
+Variables
+	a,b,c,d:entier
+Debut
+	ecrire("a")
+	lire(a)
+	ecrire("b ")
+	lire(b)
+	ecrire("yc 
+	lire(c)
+	d <- pow(b,2)-4*a*b
+	si(d>0)
+		ecrire("x = ",(-b-sqrt(d))/2a," ou ",(-b+sqrt(d))/2a)
+	sinon
+		si(d=0)
+			afficher("x = ",-b/2a)
+		sinon
+			ecrire("x n'existe pas")
+		finsi
+	sinsi
+fin
+
+Exo9
+
+exo_9_1
+Variables
+	hd,md,ha,ma,h1,h2,d:entier
+	afficher("entrer l'heure de depart ")
+	afficher("H")
+	lire(hd)
+	afficher("M")
+	lire(md)
+	afficher("entrer l'heure d'arriver ")
+	afficher("H")
+	lire(ha)
+	afficher("M")
+	lire(ma)
+	h1 = hd*60+md
+	h2 = ha*60+ma
+	d = h2 - h1
+	afficher("La durée de vol est ",floor(d/60),"H",d%60,"Mn")
+	
+fin
+
+exo_9_2
+Variables
+	hd,md,ha,ma,h1,h2,d:entier
+	afficher("entrer l'heure de depart ")
+	afficher("H")
+	lire(hd)
+	afficher("M")
+	lire(md)
+	afficher("entrer l'heure d'arriver ")
+	afficher("H")
+	lire(ha)
+	afficher("M")
+	lire(ma)
+	si(hd>ha) alors
+		ha = ha+24
+	finsi
+	h1 = hd*60+md
+	h2 = ha*60+ma
+	d = h2 - h1
+	afficher("La durée de vol est ",floor(d/60),"H",d%60,"Mn")
+	
+fin
+
+
+Exo10
+
+
+exo_10
+Variables
+	a,b,c:entier
+procedure compare(x:entier,y:entier)
+variables
+	z:entier
+debut
+	si(x>y) alors
+		z=x
+		x=y
+		y=z
+	finsi
+fin
+
+Debut
+
+	afficher("entrer la valeur de a")
+	lire(a)
+	afficher("entrer la valeur de b")
+	lire(b)
+	afficher("entrer la valeur de c")
+	lire(c)
+	compare(a,b)
+	compare(a,c)
+	compare(b,c)
+	afficher("l'ordre croissant est ",a," , ",b," , ",c)
+fin
+	
+	
+exo11
+
+variables
+	a,b:entier
+	o:chaine
+debut
+	afficher("entrer a")
+	lire(a)
+	afficher("operation")
+	lire(o)
+	afficher("entrer b")
+	lire(b)
+	
+	selon o faire
+		cas "+" :
+			afficher(a," + ",b," = ",a+b)
+		cas "-" :
+			afficher(a," - ",b," = ",a-b)
+		cas "+" :
+			afficher(a," X ",b," = ",a*b)
+		cas "+" :
+			afficher(a," / ",b," = ",a/b)
+		sinon
+			afficher("votre choix n'existe pas")
+	finselon
+	
+fin
+
+
+
+
+exo12
+
+exo12
+variables
+	n,i,s:entier
+debut
+	afficher("entrer n")
+	lire(n)
+	s=0
+	pour (i=1 a n/2)
+		si(n%i==0)
+			s = s+i
+		fins
+	finpour
+	si(n==s)
+		afficher("le nombre est parfait")
+	sinon
+		afficher("le nombre n'est pas parfait")
+		
+	finsi
+fin
+
+Exo13
+
+
+exo13
+
+variables
+	j,m,a:entier
+debut
+	afficher("entrer ldate ")
+	afficher("j")
+	lire(j)
+	afficher("m")
+	lire(m)
+	afficher("a")
+	lire(a)
+	si(m>12 OU m<0 OU j<0 OU j>31)
+		afficher("date invalide")
+	sinon
+		si(m%2!=0 && m <=7 || m % 2 == 0 && m > 7)
+			si(j>31)
+				afficher("date invalide")
+			sinon
+				afficher("date valide")
+			finsi
+		sinon
+			si(m!=2)
+				si(j>30)
+					afficher("date invalide")
+				sinon
+					afficher("date valide")
+				finsi
+			sinon
+				si( a%400==0 OU a%4==0 ET a%100!=0)
+					si(j>28)
+						afficher("date invalide")
+					sinon
+						afficher("date valide")
+					finsi
+				sinon
+					si(j>28)
+						afficher("date invalide")
+					sinon
+						afficher("date valide")
+					finsi
+				finsi
+			finsi
+		finsi
+	finsi
+fin
