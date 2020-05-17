@@ -1,0 +1,340 @@
+exo14
+
+variables
+	j,m,a:entier
+debut
+	ecrire("entrer ldate ")
+	ecrire("j")
+	lire(j)
+	ecrire("m")
+	lire(m)
+	ecrire("a")
+	lire(a)
+	ecrire("Entrer l'année")
+	lire(a)
+	si( a mod 400==0 OU a mod 4==0 ET a mod 100!=0) alors
+		ecrire(a," est bisextile")
+	sinon
+		ecrire(a," n'est pas bisextile")
+	finsi
+fin
+
+
+
+exo15
+
+variables
+	n,i,s:entier
+	m:reel
+debut
+	ecrire("entrer un nombre")
+	lire(n)
+	tanque(n<0) faire
+		ecrire("vous devez entrer un nombre positif")
+		lire(n)
+	fintanque
+	s  <-0
+	m <- 1
+	pour(i <- 1 a n)
+		s <- s+i
+	finpour
+	m <- s/n
+	ecrire("la somme des nombres allant de 1 à ",n," est ",s)
+	ecrire("la moyenne des nombres allant de 1 à ",n," est ",m)
+fin
+
+
+exo16
+
+variables
+	a,b,q,r:entier
+debut
+	ecrire("entrer la valeur de a")
+	lire(a)
+	ecrire("entrer la valeur de b")
+	lire(b)
+	q <- 0
+	r <- a
+	
+	tanque(r>=b) faire
+		r <-  r-b
+		q <- q+1
+	fintanque
+	ecrire("la division de ,a," par ,b," est ",q," et le reste est ",r)
+fin
+
+
+exo17
+
+variables
+	a,b,c,d:entier
+debut
+	ecrire("entrer la valeur de a")
+	lire(a)
+	ecrire("entrer la valeur de b")
+	lire(b)
+	c <- a
+	d <- b
+	tanque(c!=d)
+		si(c>d)
+			c <- c-d
+		sinon
+			d <- d-c
+		finsi
+	fintanque
+	ecrire("le PGCD de (",a," et ",b," est ",c)
+fin
+
+
+exo18
+
+variables
+	a,b,c,d:entier
+debut
+	ecrire("entrer la valeur de a")
+	lire(a)
+	ecrire("entrer la valeur de b")
+	lire(b)
+	c <- a
+	d <- b
+	tanque(c!=d)
+		si(c>d)
+			c <- c-d
+		sinon
+			d <- d-c
+		finsi
+	fintanque
+	
+	ecrire("le PPCM de (",a," et ",b," est ",a*b/c)
+fin
+
+
+exo19
+variables
+	s,n:entier
+debut
+	s <- 0
+	faire
+		ecrire("entrer le prix du produit ")
+		lire(n)
+		s <- s+n
+	tanque(n!=0)
+	ecrire("Le prix total est ",s)
+fin
+
+
+exo20
+variables
+	i,n,g,r:entier
+debut
+	g=0
+	r=0
+	pour(i allant de 1 a 10)
+		ecrire("entrer un nombre ")
+		lire(n)
+		si(n>g)
+			g <- n
+			r <- i
+		finsi
+	finpour
+	ecrire("le nombre le grand est ",g," et son rang est ",r)
+fin
+
+
+
+Exo21
+
+variables
+	nb,x,i:entier
+debut
+	ecrire("entrer le nombre à deviner")
+	lire(x)
+	i<-0
+	repeter
+		ecrire("afficher entrer un nombre ")
+		lire(x)
+		i <- i+1
+		si(x>nb) alors	
+			ecrire("entrer un nombre plus petit")
+		sinon
+			si(x<nb) alors
+				ecrire("entrer un nombre plus grand")
+			sinon
+				ecrire("bravo vous avez trouvé le nombre secret a ",i," essaie")
+			finsi
+		finsi
+	jusqua nb=x
+fin
+
+
+
+Exo22
+
+exo22
+Variables 
+  db,fn,l,i,j,n,k : entier
+   tableau tab[10..50] : entier
+DEBUT
+	ecrire("entrer la valeur de N")
+	lire(n)
+	tanque(n<10OU n>50) faire
+		ecrire("vous devez entrer un nombre compris entre 10 et 50")
+		lire(n)
+	fintanque
+	
+	pouri <- 1 a  n  faire
+		ecrire("entrer la valeur a l'indice ",i)
+		lire(tab[i])
+		tanque(tab[i]<1 OU tab[i]>100) faire
+			ecrire("vous devez entrer un nombre compris entre 1 et 100")
+			lire(tab[i])
+		fintanque
+	finpour
+	
+	
+	db <- 0
+	fn <- 0
+	l <- 0
+	
+	
+	pouri <- 1 A n-1 faire
+		k <- i
+		j <- i+1
+		tanque (tab[k]<tab[j] ET j<=n) FAIRE
+		  k <- k+1
+		  j <- j+1
+		fintanque
+		si(j-i>l) alors
+		  db <- i
+		  fn <- k
+		  l <- j-i
+		finsi
+		i <- k
+	fnpour
+	 ecrire "la sequence la plus longue est "
+	  pouri <-  db a fn alors
+		ecrire (tab[i],’ - “)
+	 finpour
+	  ecrire ("il debute à ",db)
+	  ecrire (" sa longueure  est ",l)
+Fin
+
+Exo23
+
+exo23_a
+Variables 
+	i,n,nbm,nbM,c:entier
+debut
+	pour ( i<-0 a 12) faire
+		si(i=0) alors 
+			nbm <- 2;
+			nbmM <- 0;
+		sinon
+			c <- nbM;
+			nbM <- nbM + nbm;
+			nbm <- c;
+		finsi
+	finpour
+	ecrire ("le nombre de lapin dans un an est ",nbm+nbM)
+fin
+
+exo23_b
+Variables 
+	i,s,nbm,nbM:entier
+debut
+	tanque ( s <= 1000000000) faire 
+		si(i=0) alors
+			nbm <- 2;
+			nbmM <- 0;
+		sinon
+			c <- nbM;
+			nbM <- nbM + nbm;
+			nbm <- c;
+		finsi
+		s <- 2*nbM+nbm
+		i <- i+1
+	fintanque
+	
+	ecrire ("c'est au bout de ",i," mois que le nombre de lapin sera superieur a un milard")
+fin
+
+Exo24
+
+
+exo24
+
+Variables
+	nb,x:entier
+debut
+	ecrire("entrer le nombre à deviner")
+	lire(nd)
+	repeter
+		ecrire("afficher entrer un nombre ")
+		lire(x)
+		si(x>nb) alors	
+			ecrire("Trop grand")
+		sinon
+			si(x<nb) alors
+				ecrire("Trop petit")
+			sinon
+				ecrire("bravo vous avez trouvé le nombre secret")
+			finsi
+		finsi
+	jusqua nb=x
+fin
+
+Exo25
+
+exo25
+variables
+	i,j:entier
+debut
+	pour(i<- 1 a 10) faire 
+		pour(j <- 1 a j ) faire
+			ecrire(i)
+		finpour
+	finpour
+fin
+
+Exo26
+
+
+exo26
+Variables 
+	i,c,d,m:entier
+	tableau tab[1..10] : entier
+debut
+	
+	c <- 1
+	d <- 1
+	m <- 1
+	pour i<- 1 a 10 faire
+		ecrire(“entrer une valeur”)
+		lire(tab[i]=
+	finpour
+	pour i <- 1 a 10  faire
+		si (tab[i]<tab[i+1]) alors
+			d <- 0
+			m<-0
+		sinon
+			si(tab[i]>tab[i+1]) alors
+				c <- 0
+				m<-0
+			sinon
+				c <- 0
+				d <- 0
+		finsi
+	finpour
+
+	si(c=1) alors
+		ecrire ("dans l'ordre croissant")
+	sinon
+		si (d = 1) alors
+			ecrire ("dans l'ordre decroissant")
+		sinon
+			si(m= 1) alors 
+				ecrire ("dans l'ordre quelconque")
+			finsi
+		finsi
+	finsi
+fin
